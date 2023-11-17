@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace MagicVilla_VillaAPI.Controllers
 {
     //[Route("api/[contoller]")]
-    [Route("api/VillaAPI")]
+    [Route("api/VillaAPI/[action]")]
     [ApiController]
     public class VillaAPIController : ControllerBase
     {
