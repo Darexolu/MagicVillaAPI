@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>List of Available Villas</h1>
 
 @* <p>
     <a asp-action="Create">Create New</a>
@@ -36,6 +36,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Amenity)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThumbnailUrl)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -60,13 +63,17 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Sqft)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
+                <td>
+                    <!-- Display the ImageUrl as a link -->
+                    <a href="@item.ImageUrl" target="_blank">@item.ImageUrl</a>
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Amenity)
             </td>
-           @*  <td>
+            <td>
+                    <img src="data:image/jpg;base64,@item.ThumbnailUrl" alt="Image" style="width: 150px; height: 150px"  />
+            </td>
+            @* <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })

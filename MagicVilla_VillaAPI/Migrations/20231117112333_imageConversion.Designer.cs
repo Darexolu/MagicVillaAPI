@@ -4,6 +4,7 @@ using MagicVilla_VillaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicVilla_VillaAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231117112333_imageConversion")]
+    partial class imageConversion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,7 +73,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 1,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 17, 17, 24, 16, 563, DateTimeKind.Local).AddTicks(8707),
+                            CreatedDate = new DateTime(2023, 11, 17, 12, 23, 33, 744, DateTimeKind.Local).AddTicks(4967),
                             Details = "lorem ipsum ie kafsj  jssv ",
                             ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa1.jpg",
                             Name = "Royal Villa",
@@ -83,7 +86,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 2,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 17, 17, 24, 16, 563, DateTimeKind.Local).AddTicks(8719),
+                            CreatedDate = new DateTime(2023, 11, 17, 12, 23, 33, 744, DateTimeKind.Local).AddTicks(4977),
                             Details = "lorem ipsum ie kafsj  jssv ",
                             ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa2.jpg",
                             Name = "Diamond Villa",
@@ -96,7 +99,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 3,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 17, 17, 24, 16, 563, DateTimeKind.Local).AddTicks(8720),
+                            CreatedDate = new DateTime(2023, 11, 17, 12, 23, 33, 744, DateTimeKind.Local).AddTicks(4979),
                             Details = "lorem ipsum ie kafsj  jssv ",
                             ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa3.jpg",
                             Name = "Lucky Pool Villa",
@@ -109,7 +112,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 4,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 17, 17, 24, 16, 563, DateTimeKind.Local).AddTicks(8722),
+                            CreatedDate = new DateTime(2023, 11, 17, 12, 23, 33, 744, DateTimeKind.Local).AddTicks(4980),
                             Details = "lorem ipsum ie kafsj  jssv ",
                             ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa4.jpg",
                             Name = "Diamond Pool Villa",
@@ -122,7 +125,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 5,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 17, 17, 24, 16, 563, DateTimeKind.Local).AddTicks(8723),
+                            CreatedDate = new DateTime(2023, 11, 17, 12, 23, 33, 744, DateTimeKind.Local).AddTicks(4982),
                             Details = "lorem ipsum ie kafsj  jssv ",
                             ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa5.jpg",
                             Name = "Premium Pool Villa",

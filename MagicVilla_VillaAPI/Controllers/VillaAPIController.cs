@@ -1,4 +1,5 @@
-﻿using MagicVilla_VillaAPI.Data;
+﻿using HtmlAgilityPack;
+using MagicVilla_VillaAPI.Data;
 using MagicVilla_VillaAPI.Logging;
 using MagicVilla_VillaAPI.Models;
 using MagicVilla_VillaAPI.Models.Dto;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace MagicVilla_VillaAPI.Controllers
 {
@@ -24,7 +26,21 @@ namespace MagicVilla_VillaAPI.Controllers
             _loger = loger;
             _db = db;
         }
-
+        private byte[] GetImageData(string ImageUrl)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                try
+                {
+                    return webClient.DownloadData(ImageUrl);
+                }
+                catch (Exception)
+                {
+                    // Handle the exception if the image data cannot be retrieved
+                    return null;
+                }
+            }
+        }
 
 
         [HttpGet]
@@ -34,8 +50,41 @@ namespace MagicVilla_VillaAPI.Controllers
             //_logger.LogInformation("Getting all villas");
             _loger.Log("Getting all villas", "");
             //return Ok(VillaStore.villaList);
-            return Ok(_db.Villas.ToList()); 
+
+            //return Ok(_db.Villas.ToList()); 
+            var items = _db.Villas.ToList();
+            var responseList = new List<VillaDTO>();
+            foreach (var item in items)
+            {
+                // Get the main image URL using HtmlAgilityPack
+                byte[] thumbnailUrl = GetImageData(item.ImageUrl);
+                HttpResponseMessage httpresponse = new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new ByteArrayContent(thumbnailUrl)
+                };
+                httpresponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpg");
+                string base64Image = Convert.ToBase64String(thumbnailUrl);
+                // Create a response object with all properties
+                VillaDTO response = new()
+                {
+                    Amenity = item.Amenity,
+                    Details = item.Details,
+                    Id = item.Id,
+                    ImageUrl = item.ImageUrl,
+                    Name = item.Name,
+                    Occupancy = item.Occupancy,
+                    Rate = item.Rate,
+                    Sqft = item.Sqft,
+                    ThumbnailUrl = base64Image
+                };
+
+                responseList.Add(response);
+                _db.SaveChanges();
+            }
+
+            return Ok(responseList);
         }
+    
         [HttpGet("{id:int}", Name = "GetVilla")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
