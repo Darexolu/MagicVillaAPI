@@ -4,6 +4,7 @@ using MagicVilla_VillaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicVilla_VillaAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231120101505_dtoUpdateddate")]
+    partial class dtoUpdateddate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,9 +61,6 @@ namespace MagicVilla_VillaAPI.Migrations
                     b.Property<int>("Sqft")
                         .HasColumnType("int");
 
-                    b.Property<string>("ThumbnailUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
@@ -73,7 +73,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 1,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 20, 12, 3, 38, 745, DateTimeKind.Local).AddTicks(4904),
+                            CreatedDate = new DateTime(2023, 11, 20, 11, 15, 5, 576, DateTimeKind.Local).AddTicks(3448),
                             Details = "lorem ipsum ie kafsj  jssv ",
                             ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa1.jpg",
                             Name = "Royal Villa",
@@ -86,7 +86,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 2,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 20, 12, 3, 38, 745, DateTimeKind.Local).AddTicks(4915),
+                            CreatedDate = new DateTime(2023, 11, 20, 11, 15, 5, 576, DateTimeKind.Local).AddTicks(3459),
                             Details = "lorem ipsum ie kafsj  jssv ",
                             ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa2.jpg",
                             Name = "Diamond Villa",
@@ -99,7 +99,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 3,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 20, 12, 3, 38, 745, DateTimeKind.Local).AddTicks(4917),
+                            CreatedDate = new DateTime(2023, 11, 20, 11, 15, 5, 576, DateTimeKind.Local).AddTicks(3461),
                             Details = "lorem ipsum ie kafsj  jssv ",
                             ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa3.jpg",
                             Name = "Lucky Pool Villa",
@@ -112,7 +112,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 4,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 20, 12, 3, 38, 745, DateTimeKind.Local).AddTicks(4918),
+                            CreatedDate = new DateTime(2023, 11, 20, 11, 15, 5, 576, DateTimeKind.Local).AddTicks(3463),
                             Details = "lorem ipsum ie kafsj  jssv ",
                             ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa4.jpg",
                             Name = "Diamond Pool Villa",
@@ -125,7 +125,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 5,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 20, 12, 3, 38, 745, DateTimeKind.Local).AddTicks(4920),
+                            CreatedDate = new DateTime(2023, 11, 20, 11, 15, 5, 576, DateTimeKind.Local).AddTicks(3464),
                             Details = "lorem ipsum ie kafsj  jssv ",
                             ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa5.jpg",
                             Name = "Premium Pool Villa",

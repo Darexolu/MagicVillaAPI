@@ -146,8 +146,8 @@ namespace MagicVilla_VillaAPI.Controllers
                 Name = villaDTO.Name,
                 Occupancy = villaDTO.Occupancy,
                 Rate = villaDTO.Rate,
-                Sqft = villaDTO.Sqft
-            };
+                Sqft = villaDTO.Sqft,
+                CreatedDate = DateTime.Now            };
             _db.Villas.Add(model);
             _db.SaveChanges();  
             return CreatedAtRoute("GetVilla", new { id = villaDTO.Id }, villaDTO);
@@ -193,7 +193,9 @@ namespace MagicVilla_VillaAPI.Controllers
                 Name = villaDTO.Name,
                 Occupancy = villaDTO.Occupancy,
                 Rate = villaDTO.Rate,
-                Sqft = villaDTO.Sqft
+                Sqft = villaDTO.Sqft,
+                ThumbnailUrl = villaDTO.ThumbnailUrl,
+               UpdatedDate = DateTime.Now
             };
             _db.Villas.Update(model);
             _db.SaveChanges();
@@ -222,7 +224,9 @@ namespace MagicVilla_VillaAPI.Controllers
                 Name = villa.Name,
                 Occupancy = villa.Occupancy,
                 Rate = villa.Rate,
-                Sqft = villa.Sqft
+                Sqft = villa.Sqft,
+                ThumbnailUrl = villa.ThumbnailUrl,
+                UpdatedDate = villa.UpdatedDate
             };
             if (villa == null)
             {
@@ -238,7 +242,10 @@ namespace MagicVilla_VillaAPI.Controllers
                 Name = villaDTO.Name,
                 Occupancy = villaDTO.Occupancy,
                 Rate = villaDTO.Rate,
-                Sqft = villaDTO.Sqft
+                Sqft = villaDTO.Sqft,
+                ThumbnailUrl = villaDTO.ThumbnailUrl,
+                UpdatedDate = DateTime.Now
+
             };
             _db.Villas.Update(model);
             _db.SaveChanges();  

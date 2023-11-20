@@ -16,5 +16,6 @@ namespace MagicVilla_VillaAPI.Models.Dto
         public string ImageUrl { get; set; }
         public string? ThumbnailUrl { get; set; }
         public string Amenity { get; set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }

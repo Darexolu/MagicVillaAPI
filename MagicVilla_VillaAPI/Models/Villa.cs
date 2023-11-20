@@ -15,6 +15,7 @@ namespace MagicVilla_VillaAPI.Models
         public int Occupancy { get; set; }
         public string ImageUrl { get; set; }
         public string Amenity { get; set; }
+        public string? ThumbnailUrl { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
     }
